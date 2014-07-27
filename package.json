@@ -1,6 +1,6 @@
 {
 	"name": "fybers",
-	"version": "1.0.1",
+	"version": "1.0.2",
 	"description": "Fibers on yields for Node.js/Harmony",
 	"keywords": "fibers yield node.js harmony sync",
 	"author": "Igor Sosyura <encobrain@gmail.com>",
