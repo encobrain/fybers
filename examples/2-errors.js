@@ -5,7 +5,7 @@ console.log('**************** Errors usage fybers ***************');
 
 function errorAsyncFunction(cb){
 	setTimeout(function(){
-	    cb(new Error('Async function error'));
+		cb(new Error('Async function error'));
 	});
 }
 
@@ -19,17 +19,17 @@ function* errorWork(a,b){
 	//catching async function error
 
 	try {
-	    var result1 = yield errorAsyncFunction(errorWork.cb);
+		var result1 = yield errorAsyncFunction(errorWork.cb);
 	} catch (err){
-	    console.log('async function result error:', err);
+		console.log('async function result error:', err);
 	}
 
 	//catching generator function error
 
 	try {
-	    var result2 = yield errorGenerator();
+		var result2 = yield errorGenerator();
 	} catch (err) {
-	    console.log('Generator result error:', err);
+		console.log('Generator result error:', err);
 	}
 
 	throw new Error('errorWork error');

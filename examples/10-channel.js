@@ -11,11 +11,11 @@ function* work1(){
 	console.log('Started work1');
 
 	while (true) {
-	    data = yield channel.get();
+		data = yield channel.get();
 
-	    console.log('Work1 received data:', data);
+		console.log('Work1 received data:', data);
 
-	    if (!data) break;
+		if (!data) break;
 	}
 
 	console.log('Ended work1');
@@ -28,9 +28,9 @@ function* work2(){
 	console.log('Started work2');
 
 	while (i--) {
-	    data = yield channel.get();
+		data = yield channel.get();
 
-	    console.log('Work2 received data:', data);
+		console.log('Work2 received data:', data);
 	}
 
 	console.log('Ended work2');
@@ -42,8 +42,8 @@ function* channelWork(){
 	var i = 5;
 
 	while (i--) {
-	    console.log('Sends to channel:', i);
-	    channel.send(i);
+		console.log('Sends to channel:', i);
+		channel.send(i);
 	}
 
 }

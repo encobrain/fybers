@@ -5,11 +5,11 @@
 	require('./lib/extends/fyber/sleep');
 
 	var Fyber = require('./lib/fyber'),
-	    Channel = require('./lib/extends/fyber/channel'),
-	    Lock = require('./lib/extends/fyber/lock'),
-	    Future = require('./lib/extends/fyber/future'),
-	    Waiter = require('./lib/extends/fyber/waiter'),
-	    YieldValue = require('./lib/yieldValue')
+		Channel = require('./lib/extends/fyber/channel'),
+		Lock = require('./lib/extends/fyber/lock'),
+		Future = require('./lib/extends/fyber/future'),
+		Waiter = require('./lib/extends/fyber/waiter'),
+		YieldValue = require('./lib/yieldValue')
 	;
 
 	Fyber.Channel = Channel;

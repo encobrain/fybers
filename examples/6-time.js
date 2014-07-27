@@ -17,11 +17,11 @@ function asyncWork(cb){
 	setTimeout(next, 2000);
 
 	function next() {   // after timeout time will be calculate to WORK time
-	    console.log('Slept time:', Date.now() - sleepStart);
+		console.log('Slept time:', Date.now() - sleepStart);
 
-	    calc();
+		calc();
 
-	    cb();
+		cb();
 	}
 
 }

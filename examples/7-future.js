@@ -5,8 +5,8 @@ console.log('**************** Future usage fybers ***************');
 function asyncFunction(a, cb){
 	console.log('asyncFunction start. wait 1 sec');
 	setTimeout(function(){
-	    console.log('asyncFunction done');
-	    cb(null, a * 10);
+		console.log('asyncFunction done');
+		cb(null, a * 10);
 	},1000);
 }
 
@@ -21,7 +21,7 @@ function* futureWork(a){
 
 	// creating futures
 	var asyncRequest = yield asyncFunction(10, futureWork.fcb), // call async function
-	    generatorRequest = generatorFunction(10).future // call generator execution
+		generatorRequest = generatorFunction(10).future // call generator execution
 	;
 
 	//wait for one future
@@ -40,8 +40,8 @@ function* futureWork(a){
 	var dynamicFutures = [];
 
 	for (var i = 0; i < a; i++) {
-	    dynamicFutures[i*2] = yield asyncFunction(i, futureWork.fcb);
-	    dynamicFutures[i*2+1] = generatorFunction(i).future;
+		dynamicFutures[i*2] = yield asyncFunction(i, futureWork.fcb);
+		dynamicFutures[i*2+1] = generatorFunction(i).future;
 	}
 
 	yield futureWork.waitFutures();
@@ -49,8 +49,8 @@ function* futureWork(a){
 	console.log('Dynamic results:');
 
 	for (var i=0; i < a; i++) {
-	    console.log('Async result for ',i,': ', dynamicFutures[i*2].result);
-	    console.log('Generator result for ',i,': ', dynamicFutures[i*2+1].result);
+		console.log('Async result for ',i,': ', dynamicFutures[i*2].result);
+		console.log('Generator result for ',i,': ', dynamicFutures[i*2+1].result);
 	}
 }
 

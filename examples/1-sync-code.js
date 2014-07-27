@@ -32,11 +32,11 @@ var someObject = {
 	prop: 25,
 
 	asyncFnMethod: function(a, b, cb){
-	    cb(null, a - b * this.prop);
+		cb(null, a - b * this.prop);
 	},
 
 	generatorFnMethod: function* (a, b){
-	    return a / b + this.prop;
+		return a / b + this.prop;
 	}
 
 };

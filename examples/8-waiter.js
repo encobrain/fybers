@@ -47,9 +47,9 @@ function* waiterWork(){
 	console.log('*** Start work1 without any notify  ***');
 
 	try {
-	    yield work1(); // will be error because no notify during 1sec
+		yield work1(); // will be error because no notify during 1sec
 	} catch (err) {
-	    console.log('Catch error:', err);
+		console.log('Catch error:', err);
 	}
 
 	console.log('*** Start work1 & work2 ***');
