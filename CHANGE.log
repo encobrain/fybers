@@ -1,0 +1,9 @@
+27.07.2014 v1.0.2
+Changed logic of waiter timeout errors. Thowed first timeout error.
+
+27.07.2014 v1.0.1
+Fixed bug of waiters
+
+27.07.2014 v1.0.0
+Created library
+
