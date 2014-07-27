@@ -1,15 +1,15 @@
 (function(){
 
-	require('./extends/function');
-	require('./extends/generatorFn');
-	require('./extends/fyber/sleep');
+	require('./lib/extends/function');
+	require('./lib/extends/generatorFn');
+	require('./lib/extends/fyber/sleep');
 
-	var Fyber = require('./fyber'),
-	    Channel = require('./extends/fyber/channel'),
-	    Lock = require('./extends/fyber/lock'),
-	    Future = require('./extends/fyber/future'),
-	    Waiter = require('./extends/fyber/waiter'),
-	    YieldValue = require('./yieldValue')
+	var Fyber = require('./lib/fyber'),
+	    Channel = require('./lib/extends/fyber/channel'),
+	    Lock = require('./lib/extends/fyber/lock'),
+	    Future = require('./lib/extends/fyber/future'),
+	    Waiter = require('./lib/extends/fyber/waiter'),
+	    YieldValue = require('./lib/yieldValue')
 	;
 
 	Fyber.Channel = Channel;
