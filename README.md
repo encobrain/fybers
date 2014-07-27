@@ -89,3 +89,4 @@ Example of use:
 	console.log('Started syncWork...');
 
 More examples - see in examples directory
+Video manual (in russian): https://drive.google.com/file/d/0B3E3RRigSsASZmtJLU9VSDN0UW8/edit?usp=sharing
