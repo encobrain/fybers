@@ -88,4 +88,4 @@ Example of use:
 	work.start(10,20); // start work asynchroniusly
 	console.log('Started syncWork...');
 
-More examples - see in <examples> directory
+More examples - see in examples directory
