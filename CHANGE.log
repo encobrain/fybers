@@ -1,9 +1,17 @@
+Legend: + Added, ! Fixed, ~ Changed, - Removed, % In progress, ^ Upgraded
+
+28.08.2014 v1.1.0
++ Added examples for refactor of redis, mogoose, callback-hell.
++ Added array methods replace for .every, .filter, .forEach, .map, .reduce, reduceRight, .some with generatorCallback's
++ Added example for usage "yield [1,2,3].<method>(function*(...){ });"
+% In progress: methods for array with generatorFunction: .sort, .find, .findIndex
+
 27.07.2014 v1.0.2
-Changed logic of waiter timeout errors. Throw first timeout error.
+~ Changed logic of waiter timeout errors. Throw first timeout error.
 
 27.07.2014 v1.0.1
-Fixed bug of waiters
+! Fixed bug of waiters
 
 27.07.2014 v1.0.0
-Created library
++ Created library
 

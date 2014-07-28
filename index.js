@@ -2,6 +2,7 @@
 
 	require('./lib/extends/function');
 	require('./lib/extends/generatorFn');
+	require('./lib/extends/array');
 	require('./lib/extends/fyber/sleep');
 
 	var Fyber = require('./lib/fyber'),
