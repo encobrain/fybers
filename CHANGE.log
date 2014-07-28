@@ -4,6 +4,7 @@ Legend: + Added, ! Fixed, ~ Changed, - Removed, % In progress, ^ Upgraded
 + Added examples for refactor of redis, mogoose, callback-hell.
 + Added array methods replace for .every, .filter, .forEach, .map, .reduce, reduceRight, .some with generatorCallback's
 + Added example for usage "yield [1,2,3].<method>(function*(...){ });"
++ Added example refactor mongoose+deffered+async
 % In progress: methods for array with generatorFunction: .sort, .find, .findIndex
 
 27.07.2014 v1.0.2
