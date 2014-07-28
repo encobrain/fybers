@@ -1,5 +1,8 @@
 Legend: + Added, ! Fixed, ~ Changed, - Removed, % In progress, ^ Upgraded
 
+28.08.2014 v1.1.2
+! Fix array-methods example
+
 28.08.2014 v1.1.1
 ! Fix keywords for npm
 

@@ -1,8 +1,8 @@
-var Fyber = require('fybers');
+var Fyber = require('../index');
 
 console.log('**************** Array methods usage fybers ***************');
 
-function* asyncFunction(value, cb){
+function asyncFunction(value, cb){
 
 	console.log('Async run:', value);
 
