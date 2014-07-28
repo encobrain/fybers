@@ -1,5 +1,8 @@
 Legend: + Added, ! Fixed, ~ Changed, - Removed, % In progress, ^ Upgraded
 
+28.08.2014 v1.1.1
+! Fix keywords for npm
+
 28.08.2014 v1.1.0
 + Added examples for refactor of redis, mogoose, callback-hell.
 + Added array methods replace for .every, .filter, .forEach, .map, .reduce, reduceRight, .some with generatorCallback's
