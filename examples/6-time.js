@@ -1,4 +1,4 @@
-var Fyber = require('../index');
+var Fyber = require('fybers');
 
 console.log('**************** Cpu & work time usage fybers ***************');
 

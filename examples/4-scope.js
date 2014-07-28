@@ -1,4 +1,4 @@
-var Fyber = require('../index'),
+var Fyber = require('fybers'),
 	events = require('events')
 ;
 

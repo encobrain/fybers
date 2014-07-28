@@ -1,5 +1,5 @@
 
-var Fyber = require('../index');
+var Fyber = require('fybers');
 
 console.log('**************** Errors usage fybers ***************');
 

@@ -1,5 +1,5 @@
 
-var Fyber = require('../index');
+var Fyber = require('fybers');
 
 function* generatorFunction(a,b){
 	console.log('GeneratorFunction this & args:', this, arguments);
