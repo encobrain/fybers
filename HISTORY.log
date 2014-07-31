@@ -1,5 +1,12 @@
 Legend: + Added, ! Fixed, ~ Changed, - Removed, % In progress, ^ Upgraded
 
+31.07.2014 v1.2.0
+! Fix bug in function.genFn()
++ Added support for yield thrunked functions
++ Added support for yield array or object as future
++ Added example for yield array or object
+~ Changed logic to setImmediate after yield
+
 28.08.2014 v1.1.2
 ! Fix array-methods example
 
