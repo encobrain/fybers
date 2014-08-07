@@ -1,8 +1,15 @@
 Legend: + Added, ! Fixed, ~ Changed, - Removed, % In progress, ^ Upgraded
 
+07.08.2014 v2.0.0
+~ Changed generatorInstance.future => generatorInstance.fututeRun()
++ Added .futureRun, .futureCall, .futureApply in function prototype
+
 07.08.2014 v1.3.1
-+ Added .syncRun, .syncCall, .syncApply methods to function proto
 ! Fix .syncApply function method
+
+07.08.2014 v1.3.0
++ Added .syncRun, .syncCall, .syncApply methods to function prototype
+
 
 31.07.2014 v1.2.0
 ! Fix bug in function.genFn()
