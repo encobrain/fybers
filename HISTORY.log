@@ -1,5 +1,8 @@
 Legend: + Added, ! Fixed, ~ Changed, - Removed, % In progress, ^ Upgraded
 
+07.08.2014 v1.3.0
++ Added .syncRun, .syncCall, .syncApply methods to function proto
+
 31.07.2014 v1.2.0
 ! Fix bug in function.genFn()
 + Added support for yield thrunked functions
