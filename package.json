@@ -1,6 +1,6 @@
 {
 	"name": "fybers",
-	"version": "1.3.0",
+	"version": "1.3.1",
 	"description": "Fibers on yields for Node.js/Harmony",
 	"keywords": ["fibers","yield","node.js","harmony","sync"],
 	"author": {
