@@ -1,5 +1,12 @@
 Legend: + Added, ! Fixed, ~ Changed, - Removed, % In progress, ^ Upgraded
 
+09.08.2014 v2.1.0
+! Fix bug with locks when error after lock
++ Added lock.unlockAll(throwError) for locks with throwError argument for throw error when unlocks
++ Added generatorFn.unlockAll('label', throwError) method for locks with throwError argument for throw error when unlocks
++ Added defaultError argument in waiter constructor
++ Added throwError argument in waiters when notify
+
 07.08.2014 v2.0.1
 ~ Changed generatorInstance.future => generatorInstance.fututeRun()
 + Added .futureRun, .futureCall, .futureApply in function prototype
