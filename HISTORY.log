@@ -1,5 +1,8 @@
 Legend: + Added, ! Fixed, ~ Changed, - Removed, % In progress, ^ Upgraded
 
+11.08.2014 v2.2.0
++ Added timeout, timeoutError & throwError for .waitFutures
+
 09.08.2014 v2.1.0
 ! Fix bug with locks when error after lock
 + Added lock.unlockAll(throwError) for locks with throwError argument for throw error when unlocks
