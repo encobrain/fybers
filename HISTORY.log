@@ -1,5 +1,10 @@
 Legend: + Added, ! Fixed, ~ Changed, - Removed, % In progress, ^ Upgraded
 
+13.08.2014 v2.3.0
+~ Changed logic of any yieldValue returned from generator to setImmediate
++ Added support of generator functions in .syncRun, .syncCall, .syncApply
++ Added FyberLock.isLocked() & GeneratorFunction.isLocked(label) methods
+
 11.08.2014 v2.2.0
 + Added timeout, timeoutError & throwError for .waitFutures
 
@@ -19,7 +24,6 @@ Legend: + Added, ! Fixed, ~ Changed, - Removed, % In progress, ^ Upgraded
 
 07.08.2014 v1.3.0
 + Added .syncRun, .syncCall, .syncApply methods to function prototype
-
 
 31.07.2014 v1.2.0
 ! Fix bug in function.genFn()
