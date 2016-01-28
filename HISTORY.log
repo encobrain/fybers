@@ -1,5 +1,9 @@
 Legend: + Added, ! Fixed, ~ Changed, - Removed, % In progress, ^ Upgraded
 
+28.01.2016 v2.3.1
+! Fixed bug in .lock/.unlock
+~ Adopt code for Node 4.2.2
+
 13.08.2014 v2.3.0
 ~ Changed logic of any yieldValue returned from generator to setImmediate
 + Added support of generator functions in .syncRun, .syncCall, .syncApply
