@@ -9,7 +9,6 @@ var global = (function () { return this; })(),
 function Error (msg) {
     var error = new _Error(msg);
 
-    console.log(stackRe);
     error.stack = error.stack.replace(stackRe, '');
 
     return error;
