@@ -1,9 +1,10 @@
 var global = (function () { return this; })(),
     _Error = global.Error,
     stackRe = new RegExp ('\\n^\\s+at next \\(native\\)|\\n\\s+at[^(]+\\(' + __filename + ':\\d+:\\d+\\)','gm'),
-    generatorPrototype = (function*(){})().constructor.prototype,
+    generator = (function*(){})(),
+    generatorPrototype = generator.constructor.prototype,
     _next = generatorPrototype.next,
-    currFyber = null
+    fybers = module.exports
     ;
 
 function Error (msg) {
@@ -18,29 +19,37 @@ Error.prototype = _Error.prototype;
 
 global.Error = Error;
 
-function* run_ (fyber, cb) {
-    try {
-        cb(null, yield* fyber);
-    } catch (err) {
-        cb(err);
-    }
-}
 
 function run (callback) {
     callback = callback || function (err) { if (err) throw err; };
 
-    _next.call(run_(this, callback));
+    var fyber = fybers.current = this,
+        result = fyber.next();
+
+    while (!result.done) {
+
+        if (result.value && result.value.constructor == generator.constructor) {
+            result.value.run(function(err, res) { if (err)  })
+        }
+    }
 }
 
 function next () {
-    var prevFyber = currFyber;
-    currFyber = this;
+    fybers.current = this;
 
-    var ret = _next.apply(this, arguments);
-
-    currFyber = prevFyber;
-    return ret;
+    return _next.apply(this, arguments);
 }
 
 generatorPrototype.run = run;
 generatorPrototype.next = next;
+
+function ycb () {
+    var fyber = fybers.current;
+
+    return function (err, res) {
+        if (err) fyber.throw(err);
+        else fyber.next(res);
+    }
+}
+
+fybers.ycb = ycb;

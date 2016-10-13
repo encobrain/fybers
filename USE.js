@@ -1,3 +1,6 @@
+var fybers = require('./index'),
+    ycb = fybers.ycb;
+
 /**
  * Created by encobrain on 11.10.16.
  */
@@ -11,18 +14,20 @@ function* sum_ (a, b) {
 }
 
 function cb (err, result) {
+    console.log('cb used');
+
     if (err) throw err;
 
     console.log(result);
 }
 
-sum_(1).run();  // throws error to node
+//sum_(1).run();  // throws error to node
 
-sum_(2).run(cb); // throws error to cb
+//sum_(2).run(cb); // throws error to cb
 
 sum_(3,4).run(); // nothing log
 
-sum_(3,4).run(cb); // log result
+sum_(5,6).run(cb); // log result
 
 
 // Use with another generator functions
@@ -50,7 +55,7 @@ User.prototype.getName_ = function* () {
 };
 
 function* getName_ (user) {
-   return yield user.getName_();
+   return yield* user.getName_();
 }
 
 var user = new User('TestName');
@@ -64,8 +69,6 @@ getName_(user).run(cb);   // from another generator
 function sleep (time, cb) {
     setTimeout(cb, time);
 }
-
-var ycb = require('fybers').yieldCb;
 
 function* timeoutCalc_ (time, a, b) {
     console.log('Waiting', time, 'ms');
