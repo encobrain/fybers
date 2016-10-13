@@ -1,5 +1,3 @@
-(function () {
-
 var global = (function () { return this; })(),
     _Error = global.Error,
     stackRe = new RegExp ('\\n^\\s+at next \\(native\\)|\\n\\s+at[^(]+\\(' + __filename + ':\\d+:\\d+\\)','gm'),
@@ -7,8 +5,6 @@ var global = (function () { return this; })(),
     _next = generatorPrototype.next,
     currFyber = null
     ;
-
-if (Object.toString.call(_next) !== 'function next() { [native code] }') return;
 
 function Error (msg) {
     var error = new _Error(msg);
@@ -49,5 +45,3 @@ function next () {
 
 generatorPrototype.run = run;
 generatorPrototype.next = next;
-
-})();
