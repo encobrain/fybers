@@ -4,7 +4,7 @@
 
 var fcb = require('../index').cb;
 
-function* sleep_ (timeout_ms) {
+function sleep (timeout_ms) {
     var now = Date.now(),
         cb = fcb()
         ;
@@ -13,7 +13,8 @@ function* sleep_ (timeout_ms) {
         cb(null, Date.now() - now);
     }
 
-    setTimeout(next, timeout_ms);
+    if (timeout_ms) setTimeout(next, timeout_ms);
+    else setImmediate(next);
 }
 
-module.exports.sleep_ = sleep_;
+module.exports = sleep;
