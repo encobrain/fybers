@@ -4,7 +4,8 @@ var global = (function () { return this; })(),
     generator = (function*(){})(),
     generatorPrototype = generator.constructor.prototype,
     _next = generatorPrototype.next,
-    fybers = module.exports
+    _throw =generatorPrototype.throw,
+    currGen = null
     ;
 
 function Error (msg) {
@@ -19,37 +20,46 @@ Error.prototype = _Error.prototype;
 
 global.Error = Error;
 
+function ycb () {
+    var gen = currGen;
+
+    return function (err,res) {
+        err != null ? gen.throw(err) : gen.next(res);
+    };
+}
+
+
+function next () {
+    currGen = this;
+
+    try {
+        var ret = _next.apply(this, arguments);
+    } catch (err) { this.__cb(err) }
+
+    return ret && ret.done ? this.__cb(null, ret.value) : ret;
+}
+
+function throww () {
+    currGen = this;
+
+    try {
+        var ret = _throw.apply(this, arguments);
+    } catch (err) { this.__cb(err) }
+
+    return ret && ret.done ? this.__cb(null, ret.value) : ret;
+}
 
 function run (callback) {
     callback = callback || function (err) { if (err) throw err; };
 
-    var fyber = fybers.current = this,
-        result = fyber.next();
+    this.throw = throww;
+    this.next = next;
 
-    while (!result.done) {
+    this.__cb = callback;
 
-        if (result.value && result.value.constructor == generator.constructor) {
-            result.value.run(function(err, res) { if (err)  })
-        }
-    }
-}
-
-function next () {
-    fybers.current = this;
-
-    return _next.apply(this, arguments);
+    this.next();
 }
 
 generatorPrototype.run = run;
-generatorPrototype.next = next;
 
-function ycb () {
-    var fyber = fybers.current;
-
-    return function (err, res) {
-        if (err) fyber.throw(err);
-        else fyber.next(res);
-    }
-}
-
-fybers.ycb = ycb;
+module.exports.ycb = ycb;
