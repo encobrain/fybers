@@ -1,5 +1,5 @@
 var fybers = require('./index'),
-    ycb = fybers.ycb;
+    fcb = fybers.cb;
 
 /**
  * Created by encobrain on 11.10.16.
@@ -73,7 +73,7 @@ function sleep (time, cb) {
 function* timeoutCalc_ (time, a, b) {
     console.log('Waiting', time, 'ms');
 
-    yield sleep(time, ycb());
+    yield sleep(time, fcb());
 
     return a + b;
 }
