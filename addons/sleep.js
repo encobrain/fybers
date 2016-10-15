@@ -10,7 +10,7 @@ function* sleep_ (timeout_ms) {
         ;
 
     function next () {
-        cb(null, Date,now() - now);
+        cb(null, Date.now() - now);
     }
 
     setTimeout(next, timeout_ms);
