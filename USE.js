@@ -93,6 +93,9 @@ function* do1_ () {
 }
 
 function* do2_ () {
+    console.log('sleep 2s');
+    yield sleep(2000, fcb());
+
     yield* do3_();
 }
 
