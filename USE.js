@@ -1,5 +1,8 @@
 var fybers = require('./index'),
-    fcb = fybers.cb;
+    fcb = fybers.cb,
+    future = fybers.future,
+    sleep = fybers.sleep
+    ;
 
 /**
  * Created by encobrain on 11.10.16.
@@ -66,21 +69,21 @@ getName_(user).run(cb);   // from another generator // log result: TestName
 
 // Use with dirrect callbacks in fiber
 
-function sleep (time, cb) {
+function wait (time, cb) {
     setTimeout(cb, time);
 }
 
 function* timeoutCalc_ (time, a, b) {
     console.log('Waiting', time, 'ms');
 
-    yield sleep(time, fcb());
+    yield wait(time, fcb());
 
     return a + b;
 }
 
-timeoutCalc_(1000, 3, 15).run(cb);
+timeoutCalc_(1000, 3, 15).run(cb);   // log result: 18
 
-// Throw error thrown 3 callback
+// Throw error thrown 3 callback & sleep use
 
 function* do1_ () {
     try {
@@ -94,14 +97,91 @@ function* do1_ () {
 
 function* do2_ () {
     console.log('sleep 2s');
-    yield sleep(2000, fcb());
+
+    yield sleep(2000);
 
     yield* do3_();
 }
 
 function* do3_ () {
-    throw new Error('Do3 error');
+    throw new Error('do3 error');
 }
 
-do1_().run(cb);
+do1_().run(cb);  // log error: Catched error in do1: Error: do3 error
+
+// Parallel run with callbacks
+
+function pdo1 (cb) {
+    console.log('pdo1 runned');
+
+    setTimeout(function (){ cb(null, 10) }, 4000);
+}
+
+function pdo2 (cb) {
+    console.log('pdo2 runned');
+
+    setTimeout(function () { cb(null, 23) }, 3000);
+}
+
+
+function* parralelCbCalc () {
+
+    var r1 = future(),
+        r2 = future();
+
+    console.log('Running parralel cbs');
+
+    pdo1(r1.cb);
+    pdo2(r2.cb);
+
+    console.log('Waiting parallel cb results');
+    r2 = yield* r2;
+    console.log('pdo2 done');
+    r1 = yield* r1;
+    console.log('pdo1 done');
+
+    return r2 + r1;
+}
+
+parralelCbCalc().run(cb);  // log result: 33
+
+// Parallel run with generator fns
+
+function* pdo1_ () {
+    console.log('pdo1_ runned');
+
+    yield sleep(6000);
+
+    return 24;
+}
+
+function* pdo2_ () {
+    console.log('pdo2_ runned');
+
+    yield sleep(5000);
+
+    return 37;
+}
+
+function* parralelGenCalc () {
+
+    var r1 = future(),
+        r2 = future();
+
+    console.log('Running parallel gens');
+
+    pdo1_().run(r1.cb);
+    pdo2_().run(r2.cb);
+
+    console.log('Waiting parallel gens results');
+    r2 = yield* r2;
+    console.log('pdo2_ done');
+    r1 = yield* r1;
+    console.log('pdo1_ done');
+
+    return r2 + r1;
+}
+
+parralelGenCalc().run(cb); // log result: 61
+
 
