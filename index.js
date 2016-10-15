@@ -20,7 +20,7 @@ Error.prototype = _Error.prototype;
 
 global.Error = Error;
 
-function ycb () {
+function cb () {
     var gen = currGen;
 
     return function (err,res) {
@@ -62,4 +62,4 @@ function run (callback) {
 
 generatorPrototype.run = run;
 
-module.exports.ycb = ycb;
+module.exports.cb = cb;
